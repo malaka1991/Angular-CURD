@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@500&display=swap');
+:root{
+  --baseColor: #d35400
+}
+
+* {
+ /* font-family: 'Martian Mono', monospace;*/
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: darkgrey;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--baseColor);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,71 @@
+<div class="outer">
+
+  <div class="inner">
+
+    <form [formGroup]="customerForm"
+          (ngSubmit)="saveCustomer()">
+      <p class="alert alert-primary">
+        Customer Form
+      </p>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Customer name</mat-label>
+        <input type="text" matInput
+               formControlName="name"
+               placeholder="Ex. nimal">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Customer Address</mat-label>
+        <input type="text" matInput
+               formControlName="address"
+               placeholder="Ex. colombo">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Customer Salary</mat-label>
+        <input type="number" matInput
+               formControlName="salary">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary"
+      [disabled]="customerForm.invalid"
+      >Save Customer</button>
+
+    </form>
+
+  </div>
+</div>
+<hr>
+<div class="container" *ngIf="customers.length>0">
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Salary</th>
+      <th>Date</th>
+      <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tempData of customers index as position">
+      <td>{{(position + 1)}}</td>
+      <td>{{tempData.name}}</td>
+      <td>{{tempData.address}}</td>
+      <td>{{tempData.salary | currency:'USD':'symbol'}}</td>
+      <td>{{tempData.registerDate | date:'EEEE, MMMM d, y'}}</td>
+      <td>
+        <button class="btn btn-danger btn-sm"
+                (click)="deleteCustomer(position)"
+        >Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+<br>
